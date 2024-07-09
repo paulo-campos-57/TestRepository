@@ -84,12 +84,16 @@ body {
 .footer button {
     background-color: var(--global-secondary-color);
     border: none;
-    color: black;
     font-weight: bolder;
     font-size: 16px;
     cursor: pointer;
     padding: 12px 20px;
     border-radius: 4px;
+}
+
+.links {
+    text-decoration: none;
+    color: black;
 }
 
 @media (max-width: 600px) {

@@ -1,0 +1,40 @@
+.position-image {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.tutorial {
+    text-align: center;
+}
+
+.ball-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-options {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.text-options a {
+    font-weight: bold;
+    align-self: flex-start;
+}
+
+@media (max-width: 375px) {
+    .position-image {
+        margin-top: 50px;
+    }
+
+    .ball-container {
+        margin-top: 15px;
+    }
+
+    .text-options {
+        margin-top: 25px;
+    }
+}
