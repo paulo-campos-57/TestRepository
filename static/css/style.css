@@ -26,6 +26,13 @@ body {
     overflow: hidden;
 }
 
+.top-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+}
+
 .header {
     background-color: var(--global-primary-color);
     color: white;

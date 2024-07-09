@@ -1,0 +1,52 @@
+.register-top {
+    background-color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.register-content {
+    text-align: left;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.register-content h2 {
+    padding: 5px;
+}
+
+.register-item {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.register-item p {
+    color: #333;
+    margin-top: -10px;
+}
+
+.accordion-container {
+    background-color: #F1F2F4;
+    width: 100%;
+}
+
+.accordion-button {
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    padding: 25px;
+    color: black;
+    font-weight: bolder;
+    transition: 0.4s;
+}
+
+.panel {
+    display: none;
+}
