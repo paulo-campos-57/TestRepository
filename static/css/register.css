@@ -44,9 +44,10 @@
     padding: 25px;
     color: black;
     font-weight: bolder;
-    transition: 0.4s;
 }
 
 .panel {
     display: none;
+    transition: max-height 0.2s ease-out;
+    overflow: hidden;
 }
