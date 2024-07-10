@@ -3,6 +3,6 @@ const accordionBtnArr = Array.from(document.getElementsByClassName("accordion-bu
 accordionBtnArr.forEach(btn => {
     btn.addEventListener("click", function () {
         let panel = this.nextElementSibling;
-        panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
+        panel.style.maxHeight = panel.style.maxHeight == 0 ? panel.scrollHeight + "px" : null;
     });
 });
