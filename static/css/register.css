@@ -17,7 +17,7 @@
 }
 
 .register-content h2 {
-    padding: 5px;
+    padding: 10px;
 }
 
 .register-item {
@@ -50,4 +50,45 @@
     max-height: 0;
     transition: max-height 0.2s ease-out;
     overflow: hidden;
+}
+
+.property-option{
+    background-color: #F1F2F4;
+    border-top: 1px solid #D6D5D5;
+}
+
+.property-option ul{
+    list-style: none;
+    
+}
+
+.property-option ul li{
+    list-style: none;
+    margin: 40px 0;
+    width: 100%;
+}
+
+
+.property-option ul li a{
+    margin-top: 10px;
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    font-size: 20px;
+    
+    
+}
+
+.property-option ul li a div{
+    
+     display: flex;
+     justify-content: flex-end; 
+     align-items: center;
+    
+}
+
+.property-option ul li a img{
+  position: relative;
+  bottom: 25px;
+  right: 15px;
 }
