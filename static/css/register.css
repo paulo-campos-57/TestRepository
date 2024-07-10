@@ -1,11 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .register-top {
     background-color: white;
+    padding: 10px;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+}
+
+#page-description {
+    padding: 20px;
+    font-weight: 600;
+    font-size: 24px;
 }
 
 .register-content {
@@ -14,21 +23,25 @@
     flex-grow: 1;
     flex-direction: column;
     justify-content: flex-start;
-}
-
-.register-content h2 {
-    padding: 10px;
+    gap: 15px;
+    
 }
 
 .register-item {
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    justify-content: flex-start;
+    gap: 8px;
+    padding-left: 20px;
+    
 }
 
 .register-item p {
-    color: #333;
-    margin-top: -10px;
+    color: #666666;
+}
+
+.register-item h3 {
+    font-size: 20px;
 }
 
 .accordion-container {
@@ -53,42 +66,60 @@
 }
 
 .property-option{
+    margin-top: 80px;
     background-color: #F1F2F4;
     border-top: 1px solid #D6D5D5;
 }
 
 .property-option ul{
     list-style: none;
+    padding-left: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     
 }
 
 .property-option ul li{
     list-style: none;
-    margin: 40px 0;
+    margin: 10px 0;
+    padding: 12px 0;
     width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.property-option ul li:first-child{
+    padding-top: 5px;
 }
 
 
 .property-option ul li a{
     margin-top: 10px;
+    margin-left: 0;
     text-decoration: none;
     color: #000;
     font-weight: 600;
     font-size: 20px;
-    
-    
+    width: 100%;
+   
 }
 
-.property-option ul li a div{
-    
-     display: flex;
-     justify-content: flex-end; 
-     align-items: center;
-    
+.property-option ul li img{
+  margin-right: 20px;
+  
 }
 
-.property-option ul li a img{
-  position: relative;
-  bottom: 25px;
-  right: 15px;
+@media (max-height: 667px){
+    .property-option{
+        margin-top: 10px;
+    }
+}
+
+@media (min-height: 844px){
+    .register-content{
+        margin-top: 20px;
+    }
 }
