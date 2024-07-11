@@ -46,17 +46,32 @@
                 <button class="accordion-button">Fotos</button>
                 <div class="panel">
                     <div class="photo-buttons">
-                        <p>Imagem 1</p>
-                        <p>Imagem 2</p>
+                        <div class="photo-item">
+                            <button id="take-photo">
+                                <img src="imgs/photoSection/camera.svg" alt="Câmera">
+                                <p>Tirar foto</p>
+                            </button>
+                            <div id="camera-container">
+                                <video id="video" autoplay></video>
+                                <button id="take-photo-button" class="camera-button"></button>
+                                <canvas id="canvas"></canvas>
+                            </div>
+                        </div>
+                        <div class="photo-item">
+                            <img src="imgs/photoSection/gallery.svg" alt="Galeria de fotos">
+                            <p>Escolher da galeria</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="footer">
-            <button>
-                <a class="links" id="declarar-button" href="step1.html">DECLARAR</a>
-            </button>
-        </div>
+        <a class="links" id="declarar-button" href="step1.html">
+            <div class="footer">
+                <button>
+                    DECLARAR
+                </button>
+            </div>
+        </a>
     </div>
     <script src="static/js/accordionAnimation.js"></script>
     <script src="static/js/document.js"></script>

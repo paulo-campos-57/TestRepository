@@ -77,3 +77,54 @@
     display: flex;
     justify-content: space-around;
 }
+
+.photo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photo-item p {
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.photo-item img {
+    width: 55px;
+    margin: 15px 0;
+}
+
+#take-photo {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#camera-container {
+    position: absolute;
+    top: 20%;
+    left: 0;
+    text-align: center;
+    display: none;
+    margin: auto;
+}
+
+#camera-container video, canvas {
+    position: relative;
+    top: 50px;
+    border-radius: 4px;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+}
+
+#camera-container button {
+    position: relative;
+    top: -15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border: none;
+    background-color: var(--global-secondary-color);
+    z-index: 1;
+}

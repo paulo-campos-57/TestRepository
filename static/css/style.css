@@ -97,6 +97,10 @@ body {
     border-radius: 4px;
 }
 
+.footer button a {
+    width: 100%;
+}
+
 .links {
     text-decoration: none;
     color: black;
