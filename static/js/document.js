@@ -12,7 +12,7 @@ const changeTakenPhotoSubmitButtonState = (isDisabled) => {
     if (isDisabled) {
         declararButton.style.opacity = 0.5;
         declararButton.removeAttribute('href');
-        return
+        return;
     }
     declararButton.style.opacity = 1;
     declararButton.setAttribute('href', 'step1.html');
@@ -36,11 +36,11 @@ fileInput.addEventListener('change', function () {
 
 openCameraButton.addEventListener('click', async () => {
     try {
-        cameraContainer.style.display = 'block';
         // Versão celular
         //stream = await navigator.mediaDevices.getUserMedia({ video: {facingMode: { exact: 'environment' }} });
         // Versão PC
         stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        cameraContainer.style.display = 'block';
         video.srcObject = stream;
     } catch(err) {
         alert('Erro ao acessar a câmera: ', err);
