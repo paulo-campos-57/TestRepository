@@ -128,3 +128,11 @@
     background-color: var(--global-secondary-color);
     z-index: 1;
 }
+
+#photo{
+    display: none;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    max-width: 100%;
+}
