@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/register.css">
+    <link rel="stylesheet" href="static/css/upload.css">
+    <title>Cadastre seu patrimônio</title>
+</head>
+<body>
+    <div class="container">
+        <div class="register-top">
+            <div class="top-navigation">
+                <a href="patrimonyRegister.html">
+                    <img src="imgs/topIcons/backArrow.svg" alt="Voltar">
+                </a>
+                <h2>Cadastro</h2>
+                <a href="index.html">
+                    <img src="imgs/topIcons/closeButton.svg" alt="Fechar">
+                </a>
+            </div>
+        </div>
+        <div class="register-content">
+            <h2 id="page-description">Cadastro de imóvel</h2>
+            <div class="register-item">
+                <h3>Lote</h3>
+                <p>Para realizar essa operação, precisamos de alguns documentos.</p>
+                <ul>
+                    <li>Matrícula do imóvel</li>
+                    <li>Foto do imóvel</li>
+                </ul>
+            </div>
+            <div class="accordion-container">
+                <button id= "matricula-button" class="accordion-button">Matrícula</button>
+                <div class="panel">
+                    <div class="interior-panel">
+                        <p>Para teste, selecione um pdf qualquer para envio.</p>
+                        <div class="file-upload">
+                            <label for="document-input">Buscar...</label>
+                            <input type="file" id="document-input" accept="application/pdf">
+                            <span class="file-name">Nenhum arquivo selecionado</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="accordion-button">Fotos</button>
+                <div class="panel">
+                    <div class="photo-buttons">
+                        <p>Imagem 1</p>
+                        <p>Imagem 2</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <button>
+                <a class="links" href="step1.html">DECLARAR</a>
+            </button>
+        </div>
+    </div>
+    <script src="static/js/accordionAnimation.js"></script>
+    <script src="static/js/document.js"></script>
+</body>
+</html>
