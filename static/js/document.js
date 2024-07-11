@@ -7,6 +7,7 @@ const cameraContainer = document.getElementById('camera-container');
 const takePhotoButton = document.getElementById('take-photo-button');
 const photo = document.getElementById('photo');
 const context = canvas.getContext('2d');
+const checkIcon = document.getElementsByClassName('fa-check');
 
 const changeTakenPhotoSubmitButtonState = (isDisabled) => {
     if (isDisabled) {
@@ -26,6 +27,7 @@ fileInput.addEventListener('change', function () {
     fileNameSpan.textContent = fileName;
     if (this.files[0]) {
         changeTakenPhotoSubmitButtonState(false);
+        checkIcon[0].style.display = 'inline-block'
         matriculaButton.classList.add('active');
         matriculaButton.style.color = 'green';
     } else {
