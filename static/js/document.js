@@ -105,14 +105,47 @@ document.getElementById('take-gallery').addEventListener('click', function () {
 document.getElementById('gallery-input').addEventListener('change', function (event) {
     const file = event.target.files[0];
     if (file) {
-        checkIcon[1].style.display = 'inline-block';
-        accordionPhoto.style.color = 'green';
         const reader = new FileReader();
         reader.onload = function (e) {
             galleryImage.src = e.target.result;
         };
         reader.readAsDataURL(file);
         galleryImage.style.display = 'block';
-        changeTakenPhotoSubmitButtonState();
+        getExifData(file, photo);
     }
 });
+
+function getExifData(file, locationElement) {
+    EXIF.getData(file, function () {
+        const lat = EXIF.getTag(this, "GPSLatitude");
+        const lon = EXIF.getTag(this, "GPSLongitude");
+        if (lat && lon) {
+            checkIcon[1].style.display = 'inline-block';
+            accordionPhoto.style.color = 'green';
+            changeTakenPhotoSubmitButtonState();
+            const latRef = EXIF.getTag(this, "GPSLatitudeRef") || "N";
+            const lonRef = EXIF.getTag(this, "GPSLongitudeRef") || "W";
+            const latitude = convertDMSToDD(lat, latRef);
+            const longitude = convertDMSToDD(lon, lonRef);
+            cameraLocation.textContent = `Geolocalização: Latitude: ${latitude}, Longitude: ${longitude}`;
+        } else {
+            alert("Por favor, envie uma foto com geolocalização");
+            cameraLocation.textContent = '';
+            checkIcon[1].style.display = 'none';
+            changeTakenPhotoSubmitButtonState();
+            photo.style.display = 'none';
+        }
+    });
+}
+
+function convertDMSToDD(dms, ref) {
+    if (!dms) return NaN;
+    const degrees = dms[0] || 0;
+    const minutes = dms[1] || 0;
+    const seconds = dms[2] || 0;
+    let dd = degrees + minutes / 60 + seconds / 3600;
+    if (ref === "S" || ref === "W") {
+        dd = dd * -1;
+    }
+    return dd;
+}
