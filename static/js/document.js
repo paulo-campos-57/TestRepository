@@ -1,3 +1,21 @@
+let userLatitude = null;
+let userLongitude = null;
+
+function requestLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+            userLatitude = position.coords.latitude;
+            userLongitude = position.coords.longitude;
+        }, error => {
+            console.error('Erro ao acessar a geolocalização: ', error);
+        });
+    } else {
+        console.error('Geolocalização não é suportada por este navegador.');
+    }
+}
+
+document.addEventListener('DOMContentLoaded', requestLocation);
+
 const fileInput = document.getElementById('document-input');
 const fileNameSpan = document.querySelector('.file-name');
 const matriculaButton = document.getElementById('matricula-button');
@@ -10,6 +28,7 @@ const context = canvas.getContext('2d');
 const checkIcon = document.getElementsByClassName('fa-check');
 const accordionPhoto = document.getElementById('accordion-photo');
 const galleryImage = document.getElementById('gallery-image');
+const cameraLocation = document.getElementById('camera-location');
 
 const changeTakenPhotoSubmitButtonState = () => {
     if (checkIcon[0].style.display === 'inline-block' && checkIcon[1].style.display === 'inline-block') {
@@ -28,8 +47,8 @@ fileInput.addEventListener('change', function () {
 
     fileNameSpan.textContent = fileName;
     if (this.files[0]) {
+        checkIcon[0].style.display = 'inline-block';
         changeTakenPhotoSubmitButtonState();
-        checkIcon[0].style.display = 'inline-block'
         matriculaButton.classList.add('active');
         matriculaButton.style.color = 'green';
     } else {
@@ -60,21 +79,20 @@ takePhotoButton.addEventListener('click', function () {
         reader.onload = () => {
             photo.src = reader.result;
             photo.style.display = 'block';
-            checkIcon[1].style.display = 'inline-block';
-            accordionPhoto.style.color = 'green';
+            
             stream.getTracks().forEach(track => track.stop());
             video.srcObject = null;
-            changeTakenPhotoSubmitButtonState();
 
-            // //Usar a localização do navegador
-            // if (userLatitude && userLongitude) {
-            //     cameraLocation.textContent = `Geolocalização: Latitude: ${userLatitude}, Longitude: ${userLongitude}`;
-            //     changeTakenPhotoSubmitButtonState(false);
-            // } else {
-            //     photo.style.display = 'none';
-            //     cameraLocation.textContent = '';
-            //     changeTakenPhotoSubmitButtonState(true);
-            // }
+            if (userLatitude && userLongitude) {
+                checkIcon[1].style.display = 'inline-block';
+                accordionPhoto.style.color = 'green';
+                cameraLocation.textContent = `Latitude: ${userLatitude}, Longitude: ${userLongitude}`;
+                changeTakenPhotoSubmitButtonState();
+            } else {
+                alert("Por favor, ative sua geolocalização!");
+                photo.style.display = 'none';
+                cameraLocation.textContent = '';
+            }
         };
         reader.readAsDataURL(blob);
     }, 'image/jpeg');

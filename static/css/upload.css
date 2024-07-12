@@ -170,8 +170,15 @@
 
 #photo, #gallery-image {
     display: none;
-    margin: 10px auto;
+    margin: 5px auto;
     border: 1px solid #ccc;
     border-radius: 4px;
     width: 90%;
+}
+
+#camera-location{
+    text-align: center;
+    font-size: 0.7rem;
+    color: var(--global-secondary-color);
+    font-weight: bold;
 }
