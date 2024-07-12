@@ -44,7 +44,7 @@
                         </div>
                     </div>
                 </div>
-                <button id="accordion-photo" class="accordion-button">Fotos <img src="imgs/chevron.svg" class="chevron" alt="Seta"></button>
+                <button id="accordion-photo" class="accordion-button">Fotos <i class="fa-solid fa-check"></i><img src="imgs/chevron.svg" class="chevron" alt="Seta"></button>
                 <div class="panel">
                     <div class="photo-buttons">
                         <div class="photo-item">
@@ -57,15 +57,21 @@
                                 <button id="take-photo-button" class="camera-button"></button>
                                 <canvas id="canvas"></canvas>
                             </div>
-                            
                         </div>
                         <div class="photo-item">
-                            <img src="imgs/photoSection/gallery.svg" alt="Galeria de fotos">
-                            <p>Escolher da galeria</p>
+                            <button id="take-gallery">
+                                <img src="imgs/photoSection/gallery.svg" alt="Galeria de fotos">
+                                <div class="input-gallery">
+                                    <label for="gallery-input">Buscar</label>
+                                    <input type="file" id="gallery-input" accept="image/*">
+                                </div>
+                                <p>Escolher da galeria</p>
+                            </button>
                         </div>
                     </div>
                 </div>
                 <img id="photo" src="#" alt="Foto tirada">
+                <img id="gallery-image" src="#" alt="Foto enviada">
             </div>
         </div>
         <a class="links" id="declarar-button" href="step1.html">

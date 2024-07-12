@@ -8,25 +8,27 @@ const takePhotoButton = document.getElementById('take-photo-button');
 const photo = document.getElementById('photo');
 const context = canvas.getContext('2d');
 const checkIcon = document.getElementsByClassName('fa-check');
+const accordionPhoto = document.getElementById('accordion-photo');
+const galleryImage = document.getElementById('gallery-image');
 
-const changeTakenPhotoSubmitButtonState = (isDisabled) => {
-    if (isDisabled) {
-        declararButton.style.opacity = 0.5;
-        declararButton.removeAttribute('href');
+const changeTakenPhotoSubmitButtonState = () => {
+    if (checkIcon[0].style.display === 'inline-block' && checkIcon[1].style.display === 'inline-block') {
+        declararButton.style.opacity = 1;
+        declararButton.setAttribute('href', 'step1.html');
         return;
     }
-    declararButton.style.opacity = 1;
-    declararButton.setAttribute('href', 'step1.html');
+    declararButton.style.opacity = 0.5;
+    declararButton.removeAttribute('href');
 }
 
-changeTakenPhotoSubmitButtonState(true);
+changeTakenPhotoSubmitButtonState();
 
 fileInput.addEventListener('change', function () {
     const fileName = this.files[0] ? this.files[0].name : 'Nenhum arquivo selecionado';
 
     fileNameSpan.textContent = fileName;
     if (this.files[0]) {
-        changeTakenPhotoSubmitButtonState(false);
+        changeTakenPhotoSubmitButtonState();
         checkIcon[0].style.display = 'inline-block'
         matriculaButton.classList.add('active');
         matriculaButton.style.color = 'green';
@@ -44,12 +46,12 @@ openCameraButton.addEventListener('click', async () => {
         stream = await navigator.mediaDevices.getUserMedia({ video: true });
         cameraContainer.style.display = 'block';
         video.srcObject = stream;
-    } catch(err) {
+    } catch (err) {
         alert('Erro ao acessar a câmera: ', err);
     }
 });
 
-takePhotoButton.addEventListener('click', function(){
+takePhotoButton.addEventListener('click', function () {
     cameraContainer.style.display = 'none';
 
     context.drawImage(video, 0, 0, canvas.width, canvas.height);
@@ -58,8 +60,11 @@ takePhotoButton.addEventListener('click', function(){
         reader.onload = () => {
             photo.src = reader.result;
             photo.style.display = 'block';
+            checkIcon[1].style.display = 'inline-block';
+            accordionPhoto.style.color = 'green';
             stream.getTracks().forEach(track => track.stop());
             video.srcObject = null;
+            changeTakenPhotoSubmitButtonState();
 
             // //Usar a localização do navegador
             // if (userLatitude && userLongitude) {
@@ -73,4 +78,23 @@ takePhotoButton.addEventListener('click', function(){
         };
         reader.readAsDataURL(blob);
     }, 'image/jpeg');
+});
+
+document.getElementById('take-gallery').addEventListener('click', function () {
+    document.getElementById('gallery-input').click();
+});
+
+document.getElementById('gallery-input').addEventListener('change', function (event) {
+    const file = event.target.files[0];
+    if (file) {
+        checkIcon[1].style.display = 'inline-block';
+        accordionPhoto.style.color = 'green';
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            galleryImage.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+        galleryImage.style.display = 'block';
+        changeTakenPhotoSubmitButtonState();
+    }
 });

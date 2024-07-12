@@ -118,6 +118,23 @@
     cursor: pointer;
 }
 
+#gallery-input {
+    display: none;
+}
+
+#take-gallery {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+#take-gallery .input-gallery {
+    display: none;
+}
+
 #camera-container {
     position: fixed;
     top: 0;
@@ -151,7 +168,7 @@
     z-index: 2;
 }
 
-#photo {
+#photo, #gallery-image {
     display: none;
     margin: 10px auto;
     border: 1px solid #ccc;
