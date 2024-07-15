@@ -80,6 +80,10 @@ takePhotoButton.addEventListener('click', function () {
             photo.src = reader.result;
             photo.style.display = 'block';
 
+            video.setAttribute('autoplay', '');
+            video.setAttribute('muted', '');
+            video.setAttribute('playsinline', '')
+
             stream.getTracks().forEach(track => track.stop());
             video.srcObject = null;
 
