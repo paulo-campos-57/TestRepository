@@ -91,6 +91,12 @@
     align-items: center;
 }
 
+.property-option ul li a{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
 .property-option ul li:first-child{
     padding-top: 5px;
 }
