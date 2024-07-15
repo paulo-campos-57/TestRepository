@@ -1,6 +1,10 @@
 .position-image {
     text-align: center;
-    margin-top: 10px;
+}
+
+.position-image img{
+    width: 90%;
+    height: 90%;
 }
 
 .tutorial {
@@ -28,9 +32,6 @@
 }
 
 @media (max-width: 375px) {
-    .position-image {
-        margin-top: 50px;
-    }
 
     .ball-container {
         margin-top: 15px;
@@ -38,5 +39,16 @@
 
     .text-options {
         margin-top: 25px;
+    }
+
+    @media (max-height: 667px) {
+
+        .position-image{
+            margin-top: 5px;
+        }
+        .position-image img{
+            width: 80%;
+            height: 80%;
+        }
     }
 }
