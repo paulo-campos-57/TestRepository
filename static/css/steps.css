@@ -1,29 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .position-image {
     text-align: center;
 }
 
 .position-image img{
     width: 90%;
-    height: 90%;
+    height: 80%;
 }
 
 .tutorial {
     text-align: center;
     width: 80%;
-    margin: 0 auto;
+    margin: 40px auto 20px;
 }
 
 .ball-container {
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 .text-options {
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
-    margin-bottom: 30px;
+    margin: 40px 0;
 }
 
 .text-options a {
@@ -40,6 +47,7 @@
     .text-options {
         margin-top: 25px;
     }
+}
 
     @media (max-height: 667px) {
 
@@ -51,4 +59,10 @@
             height: 80%;
         }
     }
-}
+
+    @media(min-height: 823px){
+        .text-options{
+            margin-top: 90px;
+        }       
+        
+    }
