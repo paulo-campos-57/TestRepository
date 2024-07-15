@@ -55,13 +55,45 @@ body{
     }
 }
 
-    @media (max-height: 667px) {
+@media (max-height: 667px) {
 
-        .position-image{
-            margin-top: 5px;
-        }
-        .position-image img{
-            width: 80%;
-            height: 80%;
-        }
+    .position-image{
+        margin-top: 5px;
     }
+    .position-image img{
+        width: 80%;
+        height: 80%;
+    }
+
+@media(orientation: landscape){
+    body{
+        overflow: auto;
+        height: 100%;
+    }
+    .text-options {
+        position: static;
+        display: flex;
+        justify-content: space-around;
+        left: 0;
+        transform: translateX(0%);
+        gap: 0;
+    }
+
+    .position-image {
+        text-align: center;
+        height: 80%;
+    }
+
+    .position-image img{
+        width: 30%;
+        height: 30%;
+    }
+
+    .tutorial {
+        text-align: center;
+        width: 80%;
+        margin: 10px auto;
+    }
+    
+    }
+}
