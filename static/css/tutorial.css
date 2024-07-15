@@ -2,6 +2,6 @@
     width: 350px;
     height: 350px;
     object-fit: cover;
-    /*margin: 0 auto;*/
+    margin: 0 auto;
     filter: grayscale(100%);
 }

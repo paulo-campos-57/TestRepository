@@ -33,7 +33,7 @@ const cameraLocation = document.getElementById('camera-location');
 const changeTakenPhotoSubmitButtonState = () => {
     if (checkIcon[0].style.display === 'inline-block' && checkIcon[1].style.display === 'inline-block') {
         declararButton.style.opacity = 1;
-        declararButton.setAttribute('href', 'step1.html');
+        declararButton.setAttribute('href', 'https://forms.gle/XaDzkb1vmb6S6DpPA');
         return;
     }
     declararButton.style.opacity = 0.5;
@@ -60,9 +60,9 @@ fileInput.addEventListener('change', function () {
 openCameraButton.addEventListener('click', async () => {
     try {
         // Versão celular
-        //stream = await navigator.mediaDevices.getUserMedia({ video: {facingMode: { exact: 'environment' }} });
+        stream = await navigator.mediaDevices.getUserMedia({ video: {facingMode: { exact: 'environment' }} });
         // Versão PC
-        stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        // stream = await navigator.mediaDevices.getUserMedia({ video: true });
         cameraContainer.style.display = 'block';
         video.srcObject = stream;
     } catch (err) {
