@@ -33,13 +33,15 @@ body{
 .text-options {
     display: flex;
     justify-content: space-around;
-    align-items: flex-start;
-    margin: 40px 0;
+    position: fixed;
+    bottom: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 100%;
 }
 
 .text-options a {
     font-weight: bold;
-    align-self: flex-start;
 }
 
 @media (max-width: 375px) {
@@ -62,11 +64,4 @@ body{
             width: 80%;
             height: 80%;
         }
-    }
-
-    @media(min-height: 823px){
-        .text-options{
-            margin-top: 90px;
-        }       
-        
     }
