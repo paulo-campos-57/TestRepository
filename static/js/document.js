@@ -60,9 +60,9 @@ fileInput.addEventListener('change', function () {
 openCameraButton.addEventListener('click', async () => {
     try {
         // Versão celular
-        stream = await navigator.mediaDevices.getUserMedia({ video: {facingMode: { exact: 'environment' }} });
+        //stream = await navigator.mediaDevices.getUserMedia({ video: {facingMode: { exact: 'environment' }} });
         // Versão PC
-        // stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        stream = await navigator.mediaDevices.getUserMedia({ video: true });
         cameraContainer.style.display = 'block';
         video.srcObject = stream;
     } catch (err) {

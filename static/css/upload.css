@@ -28,6 +28,14 @@
     align-items: center;
 }
 
+.icon-container{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 10px;
+}
+
 .accordion-button i {
     display: none;
     color: green;
