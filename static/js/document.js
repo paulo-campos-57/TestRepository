@@ -60,9 +60,12 @@ fileInput.addEventListener('change', function () {
 openCameraButton.addEventListener('click', async () => {
     try {
         // Versão celular
-        stream = await navigator.mediaDevices.getUserMedia({ video: {facingMode: { exact: 'environment' }} });
+        //stream = await navigator.mediaDevices.getUserMedia({ video: {facingMode: { exact: 'environment' }} });
         // Versão PC
-        //stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        video.setAttribute('autoplay', '');
+        video.setAttribute('muted', '');
+        video.setAttribute('playsinline', '')
         cameraContainer.style.display = 'block';
         video.srcObject = stream;
     } catch (err) {
@@ -79,10 +82,6 @@ takePhotoButton.addEventListener('click', function () {
         reader.onload = () => {
             photo.src = reader.result;
             photo.style.display = 'block';
-
-            video.setAttribute('autoplay', '');
-            video.setAttribute('muted', '');
-            video.setAttribute('playsinline', '')
 
             stream.getTracks().forEach(track => track.stop());
             video.srcObject = null;
