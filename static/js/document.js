@@ -79,7 +79,7 @@ takePhotoButton.addEventListener('click', function () {
         reader.onload = () => {
             photo.src = reader.result;
             photo.style.display = 'block';
-            
+
             stream.getTracks().forEach(track => track.stop());
             video.srcObject = null;
 
@@ -129,11 +129,17 @@ function getExifData(file, locationElement) {
             const longitude = convertDMSToDD(lon, lonRef);
             cameraLocation.textContent = `Geolocalização: Latitude: ${latitude}, Longitude: ${longitude}`;
         } else {
-            alert("Por favor, envie uma foto com geolocalização");
-            cameraLocation.textContent = '';
+            // alert("Por favor, envie uma foto com geolocalização");
+            const aElement = document.createElement('a');
+            aElement.href = "locationTutorial.html";
+            aElement.textContent = "aqui.";
+            aElement.target = "_self";
+            cameraLocation.textContent = 'Foto sem localização, saiba quais fotos tem localização ';
+            cameraLocation.appendChild(aElement);
             checkIcon[1].style.display = 'none';
             changeTakenPhotoSubmitButtonState();
-            photo.style.display = 'none';
+            galleryImage.style.display = 'block';
+            galleryImage.style.opacity = 0.2;
         }
     });
 }
